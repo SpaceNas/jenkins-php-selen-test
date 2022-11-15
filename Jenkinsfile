@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Integration UI Test') {
 			parallel {
-				stage('Deploy') {
+				stage('Deploys') {
 					agent any
 					steps {
 						sh './jenkins/scripts/deploy.sh'
