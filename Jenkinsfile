@@ -6,9 +6,10 @@ pipeline {
 				stage('Deploys') {
 					agent any
 					steps {
-						sh 'sudo chmod=+x ./jenkins/scripts/deploy.sh'
+						sh "chmod +x -R ./jenkins/scripts/"
+						sh './jenkins/scripts/deploy.sh'
 						input message: 'Finished using the web site? (Click "Proceed" to continue)'
-						sh 'sudo chmod=+x ./jenkins/scripts/kill.sh'
+						sh './jenkins/scripts/kill.sh'
 					}
 				}
 				stage('Headless Browser Test') {
